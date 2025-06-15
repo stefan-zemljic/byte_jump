@@ -1,15 +1,16 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.stefanzemljic.bytejump</id>
-    <name>byte_jump</name>
+    <name>Byte Jump</name>
     <vendor>stefan-zemljic</vendor>
+    <version>1.0.0</version>
+    <description>
+        Creates links in the console for patterns like 'filename[12]' to directly jump to the utf8-byte-index in the file.
+    </description>
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
-
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.stefanzemljic.bytejump.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="com.github.stefanzemljic.bytejump.startup.MyProjectActivity" />
+        <consoleFilterProvider implementation="bytejump.ByteOffsetConsoleFilterProvider"/>
     </extensions>
 </idea-plugin>
